@@ -1,0 +1,15 @@
+[Unit]
+Description = rails daemon
+
+[Service]
+WorkingDirectory = /home/deploy/app/current
+
+ExecStart = /home/deploy/app/shared/start.sh
+Restart = always
+Type = simple
+User = deploy
+Group = deploy
+
+[Install] 
+[Service]
+ExecStart=/path/to/your/rails/start.sh
