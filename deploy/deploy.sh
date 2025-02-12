@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REMOTE_USER="ubuntu"
-REMOTE_HOST="3.112.124.141"
+REMOTE_HOST="xxx"
 SSH_KEY="./deploy/GoldenVM.pem"
 
 release_version=$(date "+%Y%m%d%H%M%S")
@@ -31,6 +31,10 @@ sudo ssh -i "$SSH_KEY" "$REMOTE_USER@$REMOTE_HOST" << EOF
     echo "Create sympolink from current"
     rm -rf /home/deploy/app/current
     ln -s /home/deploy/app/releases/$release_version/. /home/deploy/app/current
+
+    echo "======================================"
+    echo "Restart App"
+    echo "Nn@123456" | sudo -S /bin/systemctl restart rail.service
 EOF
 
 echo "SSH connect is closed."
