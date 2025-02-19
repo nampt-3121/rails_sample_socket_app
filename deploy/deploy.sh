@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REMOTE_USER="ubuntu"
-REMOTE_HOST="xxx"
+REMOTE_HOST="54.248.149.243"
 SSH_KEY="./deploy/GoldenVM.pem"
 
 release_version=$(date "+%Y%m%d%H%M%S")
@@ -19,7 +19,7 @@ sudo ssh -i "$SSH_KEY" "$REMOTE_USER@$REMOTE_HOST" << EOF
     git pull
 
     echo "======================================"
-    
+
     echo "Create release folder"
     cd /home/deploy/app/releases
     mkdir $release_version
@@ -27,7 +27,7 @@ sudo ssh -i "$SSH_KEY" "$REMOTE_USER@$REMOTE_HOST" << EOF
     cp -a /home/deploy/app/repo/. /home/deploy/app/releases/$release_version
 
     echo "======================================"
-    
+
     echo "Create sympolink from current"
     rm -rf /home/deploy/app/current
     ln -s /home/deploy/app/releases/$release_version/. /home/deploy/app/current

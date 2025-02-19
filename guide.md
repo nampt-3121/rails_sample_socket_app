@@ -15,3 +15,12 @@
 `deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart rail.service`
 
 # Set up systemd /etc/systemd/system/rail.service
+# Set up user deploy
+# Set up
+# /current -> Symlink
+# /releases -> release in unix time
+# /shared  -> share folder
+
+
+# Server is start in boot
+# Deploy script
